@@ -80,9 +80,9 @@ allprojects {
 
     dependencies {
         val kafkaVersion: String by project
-        implementation(group = "org.apache.kafka", name = "kafka_2.13", version = kafkaVersion)
+        implementation(group = "org.apache.kafka", name = "kafka_2.12", version = kafkaVersion)
 
-        api(group = "info.picocli", name = "picocli", version = "4.0.4")
+        implementation(group = "info.picocli", name = "picocli", version = "4.0.4")
         api(group = "org.apache.kafka", name = "kafka-streams", version = kafkaVersion)
         val confluentVersion: String by project
         implementation(group = "io.confluent", name = "kafka-streams-avro-serde", version = confluentVersion)
@@ -90,9 +90,7 @@ allprojects {
         implementation(group = "org.slf4j", name = "slf4j-log4j12", version = "1.7.25")
         implementation(group = "com.google.guava", name = "guava", version = "29.0-jre")
         val avroVersion: String by project
-        api(group = "org.apache.avro", name = "avro", version = avroVersion)
-        api(group = "org.jooq", name = "jool", version = "0.9.14")
-        api(group = "org.apache.commons", name = "commons-lang3", version = "3.9")
+        implementation(group = "org.jooq", name = "jool", version = "0.9.14")
 
         val junitVersion = "5.4.0"
         testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
@@ -103,7 +101,6 @@ allprojects {
         testImplementation(group = "org.mockito", name = "mockito-junit-jupiter", version = "2.28.2")
 
         testImplementation(group = "com.bakdata.fluent-kafka-streams-tests", name = "fluent-kafka-streams-tests-junit5", version = "2.2.0")
-        testImplementation(group = "org.apache.kafka", name = "kafka-streams-test-utils", version = kafkaVersion)
         testImplementation(group = "com.bakdata.fluent-kafka-streams-tests", name = "schema-registry-mock-junit5", version = "2.2.0") {
             exclude(group = "junit")
         }
